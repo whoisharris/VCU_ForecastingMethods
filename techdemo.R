@@ -1,0 +1,5 @@
+appl_ds <- read.csv("aapl.csv")
+str(appl_ds)
+appl_fit <- HoltWinters(appl_ds$close,gamma=FALSE)
+plot(forecast(appl_fit))
+lines(seasadj(decompose(appl_ds$close,"multiplicative")),col=4)
